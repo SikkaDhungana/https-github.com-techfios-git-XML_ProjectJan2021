@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="regression">
+	<test name="LoginTest">
+		<parameter name="userName" value="demo@techfios.com"></parameter>
+		<parameter name="password" value="abc123" />
+		<parameter name="FullName" value="Noah" />
+		<parameter name="CompanyName" value="Techfios" />
+		<parameter name="Email" value="noah@gmail.com" />
+		<parameter name="Phone" value="2345287695" />
+
+		<parameter name="Address" value="Spring Hill" />
+		<parameter name="City" value="Manassas" />
+		<parameter name="Country" value="United States" />
+		<parameter name="State" value="VA" />
+		<parameter name="Zip" value="20111" />
+
+		<classes>
+		<!--  -->
+			<class name="test.LoginTest" />
+			<class name="test.AddCustomerTest" />
+		</classes>
+
+	</test>
+
+</suite>
+
+<!-- 2 ways to close 1. <class name="test.LoginTest" /> or 2. <class name="test.LoginTest"></class> -->

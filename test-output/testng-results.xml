@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="regression" duration-ms="30513" started-at="2021-05-29T18:50:10Z" finished-at="2021-05-29T18:50:40Z">
+    <groups>
+    </groups>
+    <test name="LoginTest" duration-ms="30513" started-at="2021-05-29T18:50:10Z" finished-at="2021-05-29T18:50:40Z">
+      <class name="test.AddCustomerTest">
+        <test-method status="PASS" signature="validUserShouldBeAbleToCreateCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.AddCustomerTest@39aeed2f]" name="validUserShouldBeAbleToCreateCustomer" duration-ms="21031" started-at="2021-05-29T18:50:19Z" finished-at="2021-05-29T18:50:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[demo@techfios.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abc123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Noah]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Techfios]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[noah@gmail.com]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[2345287695]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Spring Hill]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Manassas]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[VA]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[20111]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUserShouldBeAbleToCreateCustomer -->
+      </class> <!-- test.AddCustomerTest -->
+      <class name="test.LoginTest">
+        <test-method status="PASS" signature="validUserShouldBeAbleToLogin(java.lang.String, java.lang.String)[pri:0, instance:test.LoginTest@5c7fa833]" name="validUserShouldBeAbleToLogin" duration-ms="9434" started-at="2021-05-29T18:50:10Z" finished-at="2021-05-29T18:50:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[demo@techfios.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abc123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUserShouldBeAbleToLogin -->
+      </class> <!-- test.LoginTest -->
+    </test> <!-- LoginTest -->
+  </suite> <!-- regression -->
+</testng-results>
