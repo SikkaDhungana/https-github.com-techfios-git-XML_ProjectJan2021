@@ -10,9 +10,7 @@ import page.DashboardPage;
 import page.LoginPage;
 import util.BrowserFactory;
 
-
-public class AddCustomerTest {
-
+public class ListCustomerTest {
 	WebDriver driver;
 	String userName;
 	String Password;
@@ -30,7 +28,7 @@ public class AddCustomerTest {
 	@Test
 	@Parameters({ "userName", "password", "FullName", "CompanyName", "Email", "Phone", "Address", "City", "Country",
 			"State", "Zip" })
-	public void validUserShouldBeAbleToCreateCustomer(String userName, String password, String fullName,
+	public void validUserShouldBeAbleToUseAddCustomer(String userName, String password, String fullName,
 			String companyName, String email, String phone, String address, String city, String country, String state,
 			String zip) {
 
@@ -42,11 +40,13 @@ public class AddCustomerTest {
 		loginPage.clickSigninButton();
 
 		DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
-	//	dashboardPage.verifyDashboardPage();
+		// dashboardPage.verifyDashboardPage();
 		dashboardPage.clickCustomersButton();
-		dashboardPage.clickAddCustomersButton();
+		dashboardPage.clickListCustomersButton();
 
 		AddCustomerPage addCustomerPage = PageFactory.initElements(driver, AddCustomerPage.class);
+		addCustomerPage.clickAddCustomerOnListCustomerPage();
+
 		addCustomerPage.enterFullName(fullName);
 		addCustomerPage.enterCompany(companyName);
 		addCustomerPage.enterEmail(email);
@@ -61,10 +61,15 @@ public class AddCustomerTest {
 		addCustomerPage.verifySummaryPage();
 		dashboardPage.clickListCustomersButton();
 
-		addCustomerPage.verifyEnteredNameAndDelete();
-		addCustomerPage.deleteConformOk();
+		addCustomerPage.insertNameOnSearchBarOnListCustomer();
+		addCustomerPage.verifySearchBarAndSummaryOnListCustomer();
 
-		// BrowserFactory.tearDown();
+		addCustomerPage.verifySummaryPage();
+
+		// addCustomerPage.verifyEnteredNameAndDelete();
+		// addCustomerPage.deleteConformOk();
+
+		BrowserFactory.tearDown();
 
 	}
 

@@ -14,11 +14,11 @@
     <parameter name="City" value="Manassas"/>
     <parameter name="userName" value="demo@techfios.com"/>
     <classes>
-      <class name="test.AddCustomerTest">
+      <class name="test.ListCustomerTest">
         <methods>
-          <include name="validUserShouldBeAbleToCreateCustomer"/>
+          <include name="validUserShouldBeAbleToUseAddCustomer" invocation-numbers="0"/>
         </methods>
-      </class> <!-- test.AddCustomerTest -->
+      </class> <!-- test.ListCustomerTest -->
     </classes>
   </test> <!-- LoginTest(failed) -->
 </suite> <!-- Failed suite [regression] -->

@@ -5,19 +5,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddCustomerPage extends BasePage {
+public class ListCustomerPage extends BasePage {
 
 	WebDriver driver;
 
-	public AddCustomerPage(WebDriver driver) {
+	public ListCustomerPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"account\"]")
-	WebElement FULL_NAME_FIELD;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"page-wrapper\"]/div[3]/div[1]/div/div/div[1]/a[1]")
+	WebElement ADD_CUSTOMER_ON_LIST_CUSTOMER_PAGE;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"foo_filter\"]")
+	WebElement SEARCH_BAR_ON_LIST_CUSTOMER_PAGE;
+
 	@FindBy(how = How.XPATH, using = "//*[@id=\"cid\"]")
 	WebElement COMPANY_FIELD;
 	@FindBy(how = How.XPATH, using = "//*[@id=\"email\"]")
@@ -43,15 +44,10 @@ public class AddCustomerPage extends BasePage {
 	@FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div/div[2]/button[2]")
 	WebElement CONFORM_OK;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"page-wrapper\"]/div[3]/div[1]/div/div/div[1]/a[1]")
-	WebElement ADD_CUSTOMER_ON_LIST_CUSTOMER_PAGE;
-
 	String enteredName;
 
-	public void enterFullName(String fullName) {
-		waitForElement(driver, 3, FULL_NAME_FIELD);
-		enteredName = fullName + generateNumber(999);
-		FULL_NAME_FIELD.sendKeys(enteredName);
+	public void clickAddCustomerOnListCustomer(String fullName) {
+		ADD_CUSTOMER_ON_LIST_CUSTOMER_PAGE.click();
 	}
 
 	public void enterCompany(String company) {
@@ -90,22 +86,27 @@ public class AddCustomerPage extends BasePage {
 		SAVE_BUTTON_ON_ADD_CONTACT.click();
 	}
 
+	public void insertNameOnSearchBarOnListCustomer() {
+		SEARCH_BAR_ON_LIST_CUSTOMER_PAGE.sendKeys(enteredName);
+	}
+
 	public void verifySummaryPage() {
 		waitForElement(driver, 5, SUMMARY_BUTTON_ON_SUMMARY_PAGE);
 		// Assert.assertEquals(SUMMARY_BUTTON_ON_SUMMARY_PAGE.getText(), "Summary",
 		// "Wrong Page!!");
 	}
 
-	// tbody/tr[1]/td[3]
-	// tbody/tr[2]/td[3]
-	// tbody/tr[3]/td[3]
-	// tbody/tr[i]/td[3]
-	// tbody/tr[1]/td[3]/following-sibling::td[4]/a[2]
-	// tbody/tr[i]/td[3]/following-sibling::td[4]/a[2]
+// tbody/tr[1]/td[3]
+// tbody/tr[2]/td[3]
+// tbody/tr[3]/td[3]
+// tbody/tr[i]/td[3]
+// tbody/tr[1]/td[3]/following-sibling::td[4]/a[2]
+// tbody/tr[i]/td[3]/following-sibling::td[4]/a[2]
 
 	public void verifyEnteredNameAndDelete() {
 		String before_xpath = "//tbody/tr[";
 		String after_xpath = "]/td[3]";
+	
 
 		for (int i = 1; i <= 10; i++) {
 			String name = driver.findElement(By.xpath(before_xpath + i + after_xpath)).getText();
@@ -121,36 +122,30 @@ public class AddCustomerPage extends BasePage {
 
 	}
 
-	public void deleteConformOk() {
-		CONFORM_OK.click();
-
-	}
-
-	public void clickAddCustomerOnListCustomerPage() {
-		ADD_CUSTOMER_ON_LIST_CUSTOMER_PAGE.click();
-
-	}
-
-	public void insertNameOnSearchBarOnListCustomer() {
-		ADD_CUSTOMER_ON_LIST_CUSTOMER_PAGE.sendKeys(enteredName);
-
-	}
-
 	public void verifySearchBarAndSummaryOnListCustomer() {
 		String before_xpath = "//tbody/tr[";
 		String after_xpath = "]/td[3]";
 
 		for (int i = 1; i <= 10; i++) {
 			String name = driver.findElement(By.xpath(before_xpath + i + after_xpath)).getText();
-			System.out.println(name);
+			 System.out.println(name);
 			// Assert.assertEquals(name, enteredName, "Entered name doesn't exist!");
-			// break;
-
-			// if (name.contains(enteredName)) {
-			// System.out.println("Entered name exist.");
-			// driver.findElement(By.xpath(before_xpath + i +
-			// "]/td[3]/following-sibling::td[4]/a[2]")).click();
+			//break;
+		
+			if (name.contains(enteredName)) {
+				System.out.println("Entered name exist.");
+				driver.findElement(By.xpath(before_xpath + i + "]/td[3]/following-sibling::td[4]/a[1]")).click();
+			
 		}
+			break;
 	}
-
+	
 }
+}
+
+// public void deleteConformOk() {
+// CONFORM_OK.click();
+
+// }
+
+//}

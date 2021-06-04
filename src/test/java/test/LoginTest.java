@@ -14,8 +14,6 @@ public class LoginTest {
 
 	WebDriver driver;
 	
-	String userName ;
-	String Password ;
 	
 	@Test
 	@Parameters({"userName", "password"})

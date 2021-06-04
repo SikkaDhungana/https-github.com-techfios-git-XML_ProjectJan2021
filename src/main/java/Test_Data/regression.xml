@@ -16,9 +16,10 @@
 		<parameter name="Zip" value="20111" />
 
 		<classes>
-		<!--  -->
-			<class name="test.LoginTest" />
-			<class name="test.AddCustomerTest" />
+			 <class name="test.LoginTest" /> 
+			
+		<class name="test.AddCustomerTest" /> 
+			<class name="test.ListCustomerTest" />
 		</classes>
 
 	</test>
